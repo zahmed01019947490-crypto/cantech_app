@@ -8,15 +8,3 @@ allprojects {
 plugins {
     id("com.google.gms.google-services") version "4.4.1" apply false
 }
-
-rootProject.buildDir = "../build"
-subprojects {
-    project.buildDir = "${rootProject.buildDir}/${project.name}"
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register<Delete>("clean") {
-    delete(rootProject.buildDir)
-}
